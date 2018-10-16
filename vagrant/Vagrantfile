@@ -1,0 +1,22 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+
+  config.vm.network "forwarded_port", guest: 80, host: 5001, host_ip: "127.0.0.1"
+
+  # config.vm.network "private_network", ip: "192.168.33.10"
+
+  # config.vm.network "public_network"
+
+  config.vm.synced_folder "../studINGI", "/vagrant/studINGI", type: "virtualbox"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "StudINGIWiki"
+  end
+
+  config.vm.provision :shell, path:"bootstrap.sh"
+
+  config.vm.provision :shell, :inline => "/vagrant/server_start.sh &", run: "always"
+end
