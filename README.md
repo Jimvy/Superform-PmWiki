@@ -17,10 +17,18 @@ to set up shared folders and network port forwarding.
 - In a decent terminal (e.g., ), type `vagrant up`. Normally, a lot of messages should appear
 in your terminal, talking about downloading a box and running provisions. If no text in red
 color appears, the installation should be successful.
+- Try accessing http://localhost:5001. This should redirect you to an XAMPP-branded page
+- Try accessing http://localhost:5002. This should redirect you to the home of PmWiki.
+- If you can't access either one, try the following:
+  - Type `vagrant ssh` to log into the box
+  - Type `sudo su` to get root rights
+  - Type `/opt/lampp/lampp stop` to stop the server
+  - Type `/opt/lampp/lampp start` to start the server. Check that Apache is ok.
+  - To exit, type Ctrl+D two times.
 
 ## Common use
 
-- Access http://localhost:5001 to get to the Wiki.
+- Access http://localhost:5002 to get to the Wiki.
 
 ## Vagrant usage
 
