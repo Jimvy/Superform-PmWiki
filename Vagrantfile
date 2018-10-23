@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
 
   # config.vm.network "public_network"
 
-  config.vm.synced_folder "../studINGI", "/vagrant/studINGI", type: "virtualbox"
+  config.vm.synced_folder ".", "/vagrant"
 
   config.vm.provider "virtualbox" do |vb|
     vb.name = "StudINGIWiki"
@@ -19,5 +19,5 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :shell, path:"bootstrap.sh"
 
-  config.vm.provision "shell", inline: "/vagrant/server_start.sh &", run: "always"
+  config.vm.provision "shell", inline: "/opt/lampp/lampp start", run: "always"
 end

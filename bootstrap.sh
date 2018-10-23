@@ -10,6 +10,11 @@ find . -name "xampp-linux-x64-*-installer.run" -execdir chmod +x {} \; -execdir 
 
 # execute it; normally it should use the defaults correctly
 yes | ./xampp-installer.run
+/opt/lampp/lampp stop
+
+# Update permissions
+cd /vagrant
+chmod 777 studINGI
 
 # Now, let's configure the server
 cat /vagrant/files/httpd-vhosts.conf > /opt/lampp/etc/extra/httpd-vhosts.conf
