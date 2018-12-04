@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Inside this script, put everything needed to install the environment
 
-yum -y install net-tools
+yum -y install net-tools vim
 
 cd /vagrant/files
 
